@@ -1,0 +1,23 @@
+.nav-menu-toggle{display:none}
+
+@media (max-width:1100px){
+  .nav{overflow:visible!important}
+  .hero,.manifesto,.location,.product,.gallery-strip,.signatures,.clube,.showcase,.footer,.atm-divider,.atm-piscina,.atm-entrada,.floors-intro,.floor-card{height:auto!important;min-height:100svh!important;max-height:none!important;overflow:visible!important}
+  .manifesto,.location,.product,.signatures,.clube,.footer{overflow:visible!important;overscroll-behavior:auto!important}
+  .gallery-strip,.showcase{display:block!important}
+  .gallery-track,.showcase-grid{min-height:auto!important}
+  .nav-menu-toggle{display:flex!important;position:relative;z-index:10001;width:42px;height:42px;border:1px solid rgba(232,201,139,.42);border-radius:50%;background:rgba(12,11,8,.58);align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+  .nav-menu-toggle span{width:17px;height:1px;background:var(--gold-bright);transition:transform .28s ease,opacity .22s ease}
+  .nav.nav-open .nav-menu-toggle{position:fixed!important;top:18px!important;right:24px!important;z-index:2147483647!important;background:var(--gold)!important;border-color:var(--gold)!important;box-shadow:0 18px 44px rgba(5,4,3,.55)!important;opacity:1!important;visibility:visible!important}
+  .nav.nav-open .nav-menu-toggle span{background:var(--green-900)!important}
+  .nav.nav-open .nav-menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav.nav-open .nav-menu-toggle span:nth-child(2){opacity:0}
+  .nav.nav-open .nav-menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .nav.nav-open .nav-menu-toggle::after{content:"Fechar";position:absolute;right:52px;top:50%;transform:translateY(-50%);font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-bright);white-space:nowrap;text-shadow:0 1px 12px rgba(0,0,0,.85)}
+}
+
+@media (max-width:640px){
+  .nav-menu-toggle{width:40px;height:40px}
+  .nav.nav-open .nav-menu-toggle{top:14px!important;right:18px!important}
+  .nav.nav-open .nav-menu-toggle::after{right:48px;font-size:8px;letter-spacing:.22em}
+}
