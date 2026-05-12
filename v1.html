@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Casa Conceito Marista — Terral Conceito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body class="collapsed">
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<a class="version-switcher" href="v2.html" aria-label="Abrir versão 2">V2</a>
+
+<!-- ════════════════ LOADER ════════════════ -->
+<div id="loader">
+  <div class="loader-bg"><img src="img/loader-bg.jpg" alt=""></div>
+  <div class="loader-mark">
+    <img src="assets/logo-casa-conceito.png" alt="Casa Conceito Marista" class="loader-logo">
+    <div class="loader-line"></div>
+    <div class="lab2">Marista · Goiânia</div>
+  </div>
+  <div class="loader-progress-wrap">
+    <div class="loader-progress-bar" id="loaderBar"></div>
+    <div class="loader-progress-pct" id="loaderPct">0</div>
+  </div>
+</div>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav">
+  <div class="nav-brand">
+    <img src="assets/logo-casa-conceito.png" alt="Casa Conceito Marista" class="nav-logo">
+  </div>
+  <button class="nav-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#localizacao">Localização</a>
+    <a href="#unidade">Unidade</a>
+    <a href="#pavimentos">Pavimentos</a>
+    <a href="#assinaturas">Assinaturas</a>
+    <a href="#clube">Clube 25</a>
+    <a href="#showcase">Ambiências</a>
+  </div>
+</nav>
+
+<!-- ════════════════ FORM PANEL (lateral fixo) ════════════════ -->
+<aside class="form-panel collapsed" id="formPanel">
+  <div class="form-strip" id="formStrip">
+    <div class="vmark"><em>cc</em></div>
+    <div class="vlabel">Reservar interesse</div>
+    <div class="vicon"></div>
+  </div>
+  <div class="form-content">
+    <div class="form-eyebrow">— Breve lançamento</div>
+    <h3 class="form-title">Receba o<br><em>convite</em> antes<br>de todos.</h3>
+    <p class="form-sub">Apenas <strong style="color:var(--gold-bright);font-weight:500">24 apartamentos</strong>. Um por andar. Entre pra lista de interesse:</p>
+    <form class="lead-form" id="leadForm">
+      <div class="field">
+        <label>Nome</label>
+        <input type="text" placeholder="Como devemos chamá-lo" required>
+      </div>
+      <div class="field">
+        <label>Telefone</label>
+        <input type="tel" placeholder="(62) 9 0000-0000" required>
+      </div>
+      <div class="field">
+        <label>E-mail</label>
+        <input type="email" placeholder="seu@endereco.com" required>
+      </div>
+      <button type="submit">Reservar interesse <span class="arrow">→</span></button>
+    </form>
+    <div class="form-foot">
+      <strong>Stand de vendas</strong>
+      Rua 1.145, Qd. 262, Lt. 02/03<br>
+      Setor Marista · Goiânia/GO
+    </div>
+  </div>
+</aside>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/p17.jpg" alt="Fachada Casa Conceito Marista">
+  </div>
+  <div class="scroll-hint"><span class="l"></span>Role para descobrir</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Terral Conceito · Breve lançamento · Setor Marista</div>
+    <h1 class="hero-headline">
+      Bem-estar como conceito.<br>
+      <em>Exclusividade</em> como essência.
+    </h1>
+    <div class="hero-meta">
+      <div class="group">
+        <span class="k">Pavimento</span>
+        <span class="v"><em>1</em> apto / andar</span>
+      </div>
+      <div class="group">
+        <span class="k">Unidades</span>
+        <span class="v"><em>24</em> exclusivas</span>
+      </div>
+      <div class="group">
+        <span class="k">Área privativa</span>
+        <span class="v"><em>274</em>m²</span>
+      </div>
+      <div class="group">
+        <span class="k">Vistas livres</span>
+        <span class="v"><em>3</em> frentes</span>
+      </div>
+      <div class="group">
+        <span class="k">Endereço</span>
+        <span class="v"><em>Marista</em>, GYN</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <button class="cta-form">Reservar interesse <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ MANIFESTO ════════════════ -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-bg" data-parallax-speed="0.28">
+    <img src="img/manifesto-bg.jpg" alt="">
+  </div>
+  <div class="manifesto-grid">
+    <div class="manifesto-label">
+      <span>— Manifesto · 01</span>
+      <span class="num"><em>I</em></span>
+      <span>Sobre uma nova forma de morar</span>
+    </div>
+    <div class="manifesto-text">
+      <span class="reveal">Casa é onde o endereço deixa de ser <em>localização</em></span>
+      <span class="reveal">e passa a ser <em>escolha de vida</em>.</span>
+      <span class="reveal">Onde cada detalhe traduz <em>intenção</em>.</span>
+      <span class="reveal">Onde arquitetura não é forma,</span>
+      <span class="reveal">é <em>posicionamento</em>.</span>
+      <div class="manifesto-sig">
+        <span>— Casa Conceito Marista</span>
+        <span>Goiânia · 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ATMOSPHERE DIVIDER ════════════════ -->
+<div class="atm-divider atm-entrada">
+  <img src="img/atm-entrada.jpg" alt="Fachada Casa Conceito Marista">
+  <div class="atm-copy atm-copy-entrada">
+    <p class="atm-line">Onde a cidade para,</p>
+    <p class="atm-line atm-em">a vida começa.</p>
+  </div>
+</div>
+
+<!-- ════════════════ LOCALIZAÇÃO ════════════════ -->
+<section class="location" id="localizacao">
+  <div class="section-head fade-in">
+    <div>
+      <span class="kicker">— Localização · 02</span>
+      <span class="num"><em>II</em></span>
+    </div>
+    <div>
+      <h2 class="title">Entre <em>dois ícones</em><br>da cidade.</h2>
+      <p class="lead">De um lado, a Ricardo Paranhos — símbolo de modernidade e vida ativa. De outro, o Parque Areião — refúgio verde que convida à contemplação.</p>
+    </div>
+  </div>
+
+  <div class="location-axis fade-in">
+    <div class="axis-side l">
+      <div class="img"><img src="img/p09.jpg" alt="Parque Areião"></div>
+      <div class="meta">
+        <div class="tag">— Oeste</div>
+        <div class="name">Parque <em>Areião</em></div>
+        <div class="desc">Refúgio verde, trilhas e convivência. Bem-estar diário com a natureza no quintal da varanda.</div>
+      </div>
+    </div>
+    <div class="axis-center">
+      <span class="line"></span>
+      <span class="pin">◆</span>
+      <span class="here">Você está aqui</span>
+      <span class="pin">◆</span>
+      <span class="line"></span>
+    </div>
+    <div class="axis-side r">
+      <div class="img"><img src="img/p22.jpg" alt="Alameda Ricardo Paranhos"></div>
+      <div class="meta">
+        <div class="tag">Leste —</div>
+        <div class="name">Ricardo <em>Paranhos</em></div>
+        <div class="desc">Eixo urbano premium: gastronomia autoral, cafés e o ritmo da cidade que pulsa.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="location-grid fade-in">
+    <div class="loc-cat">
+      <h4>— Gastronomia</h4>
+      <ul>
+        <li>Íz Restaurante</li>
+        <li>Grá Bistrô</li>
+        <li>1929 Trattoria</li>
+        <li>Bianco Ristorante</li>
+        <li>Bartolomeu</li>
+        <li>Ópera Café</li>
+      </ul>
+    </div>
+    <div class="loc-cat">
+      <h4>— Bem-estar</h4>
+      <ul>
+        <li>Bodytech Marista</li>
+        <li>Flex Fitness</li>
+        <li>Studio Velocity</li>
+        <li>Prime Gym</li>
+        <li>Tecfit</li>
+        <li>Basic Full</li>
+      </ul>
+    </div>
+    <div class="loc-cat">
+      <h4>— Educação</h4>
+      <ul>
+        <li>Colégio Marista</li>
+        <li>Maple Bear</li>
+        <li>Interschool Brasil</li>
+      </ul>
+    </div>
+    <div class="loc-cat">
+      <h4>— Saúde</h4>
+      <ul>
+        <li>Hospital Órion</li>
+        <li>Hosp. do Coração</li>
+        <li>Hospital Premium</li>
+        <li>Órion Business &amp; Health</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ GALLERY STRIP ════════════════ -->
+<section class="gallery-strip">
+  <div class="gallery-eyebrow">— Uma coleção de momentos privados</div>
+  <div class="gallery-track">
+    <div class="gallery-cell" data-parallax-speed="0.12">
+      <img src="img/p02.jpg?v=2" alt="Interior Casa Conceito">
+      <span class="gallery-cap">Interior · 274m²</span>
+    </div>
+    <div class="gallery-cell" data-parallax-speed="0.18">
+      <img src="img/p04.jpg" alt="Living">
+      <span class="gallery-cap">Living integrado</span>
+    </div>
+    <div class="gallery-cell" data-parallax-speed="0.14">
+      <img src="img/p30.jpg" alt="Áreas comuns">
+      <span class="gallery-cap">Aqua Lounge</span>
+    </div>
+    <div class="gallery-cell" data-parallax-speed="0.20">
+      <img src="img/p42.jpg" alt="Lazer">
+      <span class="gallery-cap">Gourmet &amp; Festas</span>
+    </div>
+  </div>
+  <div class="gallery-foot">Renders preliminares · sujeitos a alterações</div>
+</section>
+
+<!-- ════════════════ UNIDADE / PLANTAS ════════════════ -->
+<section class="product" id="unidade">
+  <div class="section-head fade-in">
+    <div>
+      <span class="kicker">— Unidade · 03</span>
+      <span class="num"><em>III</em></span>
+    </div>
+    <div>
+      <h2 class="title">Um pavimento <em>inteiro</em><br>só seu.</h2>
+      <p class="lead">274m² de pura intenção. Quatro suítes, três vistas livres, elevador privativo. A planta nasce do morador, não o contrário.</p>
+    </div>
+  </div>
+
+  <div class="plan-wrap">
+    <div class="plan-figure fade-in">
+      <span class="plan-bottom-label">— Planta humanizada</span>
+      <span class="plan-area-badge">274<em>m² · planta tipo</em></span>
+
+      <img class="plan-img" data-plan="0" src="img/planta-tipo.jpg" alt="Planta Tipo — 274m²">
+      <img class="plan-img hidden" data-plan="1" src="img/planta-opcional.jpg" alt="Planta Opcional — 274m²">
+      <img class="plan-img hidden" data-plan="2" src="img/planta-decorado.jpg" alt="Planta Decorado — 274m²">
+    </div>
+
+    <div class="plan-side fade-in">
+      <div class="ek">— Quatro arranjos. Um endereço.</div>
+      <h2>Planta como <em>obra aberta</em>.</h2>
+      <p class="desc">Quatro configurações pensadas para diferentes formas de viver — da convivência ampla ao recolhimento íntimo da master ampliada. Selecione abaixo:</p>
+      <div class="plan-cta">
+        <button class="cta-form">Agendar apresentação <span class="arrow">→</span></button>
+      </div>
+      <div class="plan-tabs">
+        <div class="plan-tab active" data-plan="0">
+          <span class="marker">A · 01</span>
+          <span class="name">Tipo</span>
+          <span class="specs">4 suítes · lavabo</span>
+        </div>
+        <div class="plan-tab" data-plan="1">
+          <span class="marker">B · 02</span>
+          <span class="name">Opcional</span>
+          <span class="specs">4 suítes · social amplo</span>
+        </div>
+        <div class="plan-tab" data-plan="2">
+          <span class="marker">C · 03</span>
+          <span class="name">Decorado</span>
+          <span class="specs">4 suítes · sala íntima</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specs-rail fade-in">
+    <div class="spec-cell">
+      <span class="k">— Esquadrias</span>
+      <span class="v">piso<em>–teto</em></span>
+      <span class="d">Salas e suíte master com vistas amplas e luz natural integral.</span>
+    </div>
+    <div class="spec-cell">
+      <span class="k">— Porcelanato</span>
+      <span class="v">1,20<em>×1,20m</em></span>
+      <span class="d">Em todas as suítes e áreas sociais. Banheiros 100% revestidos.</span>
+    </div>
+    <div class="spec-cell">
+      <span class="k">— Climatização</span>
+      <span class="v">VRF<em> integral</em></span>
+      <span class="d">Ar-condicionado em todas as suítes e salas. Ventilação cruzada.</span>
+    </div>
+    <div class="spec-cell">
+      <span class="k">— Garagem</span>
+      <span class="v">3<em> vagas + verde</em></span>
+      <span class="d">Vaga verde com ponto elétrico por unidade. Lavagem a seco.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ATM DIVIDER — PISCINA ════════════════ -->
+<div class="atm-divider atm-piscina">
+  <img src="img/atm-piscina.jpg" alt="Aqua Lounge — Casa Conceito Marista" data-parallax-speed="0.18">
+  <div class="atm-overlay"></div>
+  <div class="atm-copy">
+    <p class="atm-line">Cada detalhe projetado</p>
+    <p class="atm-line atm-em">para quem chegou lá.</p>
+  </div>
+</div>
+
+<!-- ════════════════ PAVIMENTOS — scroll-driven ════════════════ -->
+<section class="floors" id="pavimentos">
+  <div class="floors-intro fade-in">
+    <div class="ek">— Pavimentos · 04</div>
+    <h2>Exclusividade <em>revelada</em><br>andar por andar.</h2>
+    <p>Uma leitura imersiva da arquitetura, conectando bem-estar, convivência e privacidade em cada detalhe.</p>
+    <button class="cta-form">Reservar meu interesse <span class="arrow">→</span></button>
+  </div>
+
+  <div class="floors-scroll">
+    <div class="floors-sticky">
+      <div class="floors-tower">
+        <img src="img/fachada-vertical.jpg" alt="Fachada Casa Conceito Marista">
+        <div class="floor-markers">
+          <div class="floor-marker active"><span class="ml">Body &amp; Balance</span><span class="mn">01</span></div>
+          <div class="floor-marker"><span class="ml">Private Wellness</span><span class="mn">02</span></div>
+          <div class="floor-marker"><span class="ml">Aqua Lounge</span><span class="mn">03</span></div>
+          <div class="floor-marker"><span class="ml">Gourmet</span><span class="mn">04</span></div>
+          <div class="floor-marker"><span class="ml">Exclusividade</span><span class="mn">05</span></div>
+        </div>
+      </div>
+      <div class="floors-panel">
+        <div class="floor-card active">
+          <div class="card-bg"><img src="img/p23.jpg" alt="Body &amp; Balance"></div>
+          <div class="meta">
+            <div class="floor-no">1<em>º</em></div>
+            <div class="floor-lab">
+              <div class="floor-tag">— Body &amp; Balance</div>
+              <div class="floor-name">Movimento · 133m²</div>
+            </div>
+          </div>
+          <h3>Academia e Pilates,<br><em>spa de fitness.</em></h3>
+          <p class="text">Equipamentos Life Fitness, Technogym e Matrix. Reformers de madeira em estúdio luminoso. Acesso por reconhecimento facial 3D, sem toque.</p>
+          <div class="pts">
+            <span><b>133m²</b>de área total</span>
+            <span><b>3</b>marcas premium</span>
+            <span><b>3D</b>touchless</span>
+          </div>
+        </div>
+
+        <div class="floor-card">
+          <div class="card-bg"><img src="img/p25.jpg" alt="Private Wellness"></div>
+          <div class="meta">
+            <div class="floor-no">2<em>º</em></div>
+            <div class="floor-lab">
+              <div class="floor-tag">— Private Wellness</div>
+              <div class="floor-name">Renovação</div>
+            </div>
+          </div>
+          <h3>Massagem, sauna<br>e <em>recovery</em>.</h3>
+          <p class="text">Sauna intimista em madeira escura com vista para vegetação. Cold Dive e SPA quente inspirados em atletas. Sala dupla de massagem com âmbar quente.</p>
+          <div class="pts">
+            <span><b>Cold Dive</b>banheira de gelo</span>
+            <span><b>SPA quente</b>jardim vertical</span>
+            <span><b>Sauna</b>vista jardim</span>
+          </div>
+        </div>
+
+        <div class="floor-card">
+          <div class="card-bg"><img src="img/p27.jpg" alt="Aqua Lounge"></div>
+          <div class="meta">
+            <div class="floor-no">3<em>º</em></div>
+            <div class="floor-lab">
+              <div class="floor-tag">— Aqua Lounge</div>
+              <div class="floor-name">Contemplação</div>
+            </div>
+          </div>
+          <h3>Piscinas e<br><em>resort</em> urbano.</h3>
+          <p class="text">Raia de 20m climatizada com tratamento por ozônio. Pergolado de concreto vazado, pedra bruta, vegetação tropical e skyline de Goiânia ao fundo.</p>
+          <div class="pts">
+            <span><b>20m</b>de raia climatizada</span>
+            <span><b>O₃</b>tratamento ozônio</span>
+            <span><b>Deck</b>bar molhado</span>
+          </div>
+        </div>
+
+        <div class="floor-card">
+          <div class="card-bg"><img src="img/p29.jpg" alt="Gourmet"></div>
+          <div class="meta">
+            <div class="floor-no">4<em>º</em></div>
+            <div class="floor-lab">
+              <div class="floor-tag">— Gourmet &amp; Celebrações</div>
+              <div class="floor-name">Receber</div>
+            </div>
+          </div>
+          <h3>Salão de festas<br>e <em>casa de verão</em>.</h3>
+          <p class="text">83m² climatizado com terraço integrado para 40 pessoas. Casa de Verão com churrasqueira a gás, cervejeira e mesa longa para 22 — luz natural abundante.</p>
+          <div class="pts">
+            <span><b>40</b>pessoas sentadas</span>
+            <span><b>83m²</b>climatizado</span>
+            <span><b>22 lug.</b>casa de verão</span>
+          </div>
+        </div>
+
+        <div class="floor-card">
+          <div class="card-bg"><img src="img/p45.jpg" alt="Exclusividade"></div>
+          <div class="meta">
+            <div class="floor-no">5<em>º</em></div>
+            <div class="floor-lab">
+              <div class="floor-tag">— Exclusividade</div>
+              <div class="floor-name">Privacidade</div>
+            </div>
+          </div>
+          <h3>Uma residência <em>por andar</em>.</h3>
+          <p class="text">Baixa densidade. Menos vizinhos. Mais privacidade. Hall privativo com elevador exclusivo, controle de acesso individual e três vistas livres — Parque Areião, Batalhão e Ricardo Paranhos.</p>
+          <div class="pts">
+            <span><b>1</b>apto por andar</span>
+            <span><b>24</b>unidades únicas</span>
+            <span><b>3</b>vistas livres</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="floors-progress">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="counter">01/05</div>
+  </div>
+</section>
+
+<!-- ════════════════ ASSINATURAS ════════════════ -->
+<section class="signatures" id="assinaturas">
+  <div class="signatures-bg">
+    <img src="img/assinaturas-bg.jpg" alt="">
+  </div>
+  <div class="section-head fade-in">
+    <div>
+      <span class="kicker">— Assinaturas · 05</span>
+      <span class="num"><em>V</em></span>
+    </div>
+    <div>
+      <h2 class="title">Quatro <em>nomes</em>.<br>Uma curadoria.</h2>
+      <p class="lead">Cheios e vazios, luz e sombra, leveza e solidez. Cada profissional foi escolhido para escrever um capítulo distinto desta obra.</p>
+    </div>
+  </div>
+
+  <div class="sigs-grid stagger">
+    <div class="sig">
+      <div class="role">— Arquitetura</div>
+      <div class="portrait">AL</div>
+      <div class="name">Alexandre <em>Leite</em></div>
+      <div class="desc">Composição entre matéria, proporção e paisagem. Fachada que se revela em camadas: pedra como permanência, vidro como amplitude, pilar cilíndrico como identidade.</div>
+    </div>
+    <div class="sig">
+      <div class="role">— Paisagismo</div>
+      <div class="portrait">BA</div>
+      <div class="name">Benedito <em>Abbud</em></div>
+      <div class="desc">Natureza que invade a arquitetura. Floreiras nas esquinas, jardins verticais e tropicalidade desenhada por uma das maiores referências do paisagismo brasileiro.</div>
+    </div>
+    <div class="sig">
+      <div class="role">— Interiores · Comuns</div>
+      <div class="portrait">AM</div>
+      <div class="name">Adriana <em>Mundim</em><br>&amp; Fernando <em>R. Galvão</em></div>
+      <div class="desc">Curadoria estética Terral aplicada aos pavimentos de lazer. Materialidade nobre, atmosfera de spa, equilíbrio entre rigor e sensualidade.</div>
+    </div>
+    <div class="sig">
+      <div class="role">— Decorado</div>
+      <div class="portrait">AO</div>
+      <div class="name">Arquitects<br><em>Office</em> SP</div>
+      <div class="desc">Layout de showcase com sala íntima e leitura contemporânea da planta de 274m². São Paulo escrevendo sobre como o Marista pode ser vivido.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CLUBE DOS 25 ════════════════ -->
+<section class="clube" id="clube">
+  <div class="clube-grid">
+    <div class="clube-img fade-in">
+      <img src="img/p44.jpg" alt="Clube dos 25 — experiências">
+      <span class="clube-num"><em>25</em></span>
+    </div>
+    <div class="clube-side fade-in">
+      <div class="ek">— Clube dos 25 · 06</div>
+      <h2>Quem compra entra<br>para um <em>círculo</em>,<br>não uma <em>lista</em>.</h2>
+      <p class="quote">Programa exclusivo de experiências para os 24 moradores e seus convidados — cultura, gastronomia e tempo curados pela Terral.</p>
+      <div class="clube-cats">
+        <div class="clube-cat">
+          <span class="ct">— Cultura</span>
+          <span class="cb">Camarotes em shows, teatro e esportivos. Pré-estreias e eventos privados de arte.</span>
+        </div>
+        <div class="clube-cat">
+          <span class="ct">— Gastronomia</span>
+          <span class="cb">Jantares com chef convidado em sua casa. Reservas prioritárias e degustações fechadas.</span>
+        </div>
+        <div class="clube-cat">
+          <span class="ct">— Tempo</span>
+          <span class="cb">Aulas privadas de pilates, yoga e mindfulness. Acesso a spas e retiros de slow living.</span>
+        </div>
+      </div>
+      <button class="cta-form" style="margin-top:40px">Entrar para o clube <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SHOWCASE GALERIA ════════════════ -->
+<section class="showcase" id="showcase">
+  <div class="showcase-head fade-in">
+    <div>
+      <span class="kicker">— Ambiências · 07</span>
+      <span class="num"><em>VII</em></span>
+    </div>
+    <div>
+      <h2 class="title">Cada ambiente,<br>uma <em>experiência</em>.</h2>
+      <p class="lead">Do lobby ao terraço, da sauna à raia — uma sequência de espaços concebidos para elevar cada momento do dia.</p>
+    </div>
+  </div>
+
+  <div class="showcase-grid">
+
+    <div class="sc-cell sc-1" data-num="01">
+      <img src="img/gal-fachada-detalhe.jpg" alt="Fachada — jardins verticais">
+      <div class="sc-cap">
+        <span class="sc-name">Fachada</span>
+        <span class="sc-desc">Jardins verticais · Benedito Abbud</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-2" data-num="02">
+      <img src="img/gal-piscina.jpg" alt="Aqua Lounge — raia 20m">
+      <div class="sc-cap">
+        <span class="sc-name">Aqua Lounge</span>
+        <span class="sc-desc">Raia 20m · Tratamento ozônio · 3º Pavimento</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-3" data-num="03">
+      <img src="img/gal-sauna.jpg" alt="Sauna — Private Wellness">
+      <div class="sc-cap">
+        <span class="sc-name">Sauna</span>
+        <span class="sc-desc">Private Wellness · 2º Pavimento</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-4" data-num="04">
+      <img src="img/gal-spa.jpg" alt="SPA — banheira quente">
+      <div class="sc-cap">
+        <span class="sc-name">SPA Quente</span>
+        <span class="sc-desc">Imersão · Jardim vertical</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-5" data-num="05">
+      <img src="img/gal-lobby.jpg" alt="Lobby — entrada privativa">
+      <div class="sc-cap">
+        <span class="sc-name">Lobby</span>
+        <span class="sc-desc">Terrazzo · Madeira nobre · Arte original</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-6" data-num="06">
+      <img src="img/gal-gourmet.jpg" alt="Gourmet — salão de festas">
+      <div class="sc-cap">
+        <span class="sc-name">Espaço Gourmet</span>
+        <span class="sc-desc">83m² · Mesa para 22 pessoas</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-7" data-num="07">
+      <img src="img/gal-terraco.jpg" alt="Terraço — vista Goiânia">
+      <div class="sc-cap">
+        <span class="sc-name">Terraço</span>
+        <span class="sc-desc">Skyline Goiânia · Casa de Verão</span>
+      </div>
+    </div>
+
+    <div class="sc-cell sc-8" data-num="08">
+      <img src="img/gal-fachada-voo.jpg" alt="Vista aérea — varandas">
+      <div class="sc-cap">
+        <span class="sc-name">Varandas</span>
+        <span class="sc-desc">Vistas livres · Parque Areião</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="showcase-foot fade-in">
+    <p>Renders preliminares · sujeitos a alterações de projeto</p>
+    <button class="cta-form">Agendar visita ao stand <span class="arrow">→</span></button>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-terral-conceito.png" alt="Terral Conceito" class="footer-logo">
+      <p>A linha premium da Terral Incorporadora. Espaços onde as pessoas podem construir os seus mundos.</p>
+    </div>
+    <div class="footer-col">
+      <h5>— Empreendimento</h5>
+      <ul>
+        <li><b>Endereço</b>Rua 1.145, Qd. 262<br>Lt. 02/03 · Setor Marista</li>
+        <li><b>Cidade</b>Goiânia / GO</li>
+        <li><b>Status</b>Breve lançamento · 2026</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>— Contato</h5>
+      <ul>
+        <li><b>WhatsApp</b>(62) 9 0000-0000</li>
+        <li><b>E-mail</b>conceito@terral.com.br</li>
+        <li><b>Stand</b>Visita com hora marcada</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>— Terral</h5>
+      <ul>
+        <li><b>Sede</b>Goiânia · Brasília · Arapiraca</li>
+        <li><b>Atuação</b>Incorporação, shoppings, energia, agropecuária</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-stats">
+    <div class="fstat"><div class="v">38<em>anos</em></div><div class="k">— de mercado</div></div>
+    <div class="fstat"><div class="v">+500<em>mil m²</em></div><div class="k">— construídos</div></div>
+    <div class="fstat"><div class="v">+55<em>projetos</em></div><div class="k">— entregues</div></div>
+    <div class="fstat"><div class="v">12<em>shoppings</em></div><div class="k">— em operação</div></div>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 Terral Incorporadora · CRECI/GO</span>
+    <span>Imagens preliminares · sujeitas a alterações</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
