@@ -654,7 +654,7 @@ body.collapsed .nav{right:var(--panel-w-collapsed)}
 
 /* ───── SHOWCASE GALERIA ───── */
 .showcase{background:var(--green-900);padding-top:160px}
-.showcase-head{padding:0 60px 80px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:end}
+.showcase-head{padding:0 60px 80px;max-width:900px;margin:0 auto;display:grid;gap:60px;align-items:end}
 
 .showcase-grid{
   display:grid;
@@ -1472,8 +1472,8 @@ body:has(.form-panel:not(.collapsed)) .version-switcher{opacity:0;pointer-events
 @media (min-width:641px){
   .showcase{
     height:120svh!important;
-    min-height:130svh!important;
-    max-height:130svh!important;
+    min-height:160svh!important;
+    max-height:160svh!important;
     padding-top:72px!important;
     display:flex!important;
     flex-direction:column;
