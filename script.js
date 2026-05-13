@@ -1,3 +1,23 @@
+// detecção de dispositivo e redirecionamento
+(function () {
+  function handleVersionRedirect() {
+    const isMobile = window.innerWidth < 1141;
+    const currentPage = window.location.pathname;
+
+    if (isMobile && !currentPage.includes("v1.html")) {
+      window.location.replace("v1.html");
+    }
+
+    if (!isMobile && !currentPage.includes("v2.html")) {
+      window.location.replace("v2.html");
+    }
+  }
+
+  handleVersionRedirect();
+
+  window.addEventListener("resize", handleVersionRedirect);
+})();
+
 // Casa Conceito — interactions
 
 document.addEventListener('DOMContentLoaded', () => {
