@@ -1,21 +1,35 @@
 // detecção de dispositivo e redirecionamento
-(function () {
-  function handleVersionRedirect() {
-    const isMobile = window.innerWidth < 1141;
-    const currentPage = window.location.pathname;
+(async () => {
+  const redirectByScreenSize = async () => {
+    await new Promise(resolve => requestAnimationFrame(resolve));
 
-    if (isMobile && !currentPage.includes("v1.html")) {
+    const isMobile = window.innerWidth < 1141;
+    const path = window.location.pathname;
+
+    const isV1 = path.includes("v1.html");
+    const isV2 = path.includes("v2.html");
+
+    if (isMobile && !isV1) {
       window.location.replace("v1.html");
+      return;
     }
 
-    if (!isMobile && !currentPage.includes("v2.html")) {
+    if (!isMobile && !isV2) {
       window.location.replace("v2.html");
     }
-  }
+  };
 
-  handleVersionRedirect();
+  let resizeTimer;
 
-  window.addEventListener("resize", handleVersionRedirect);
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+      redirectByScreenSize();
+    }, 180);
+  });
+
+  redirectByScreenSize();
 })();
 
 // Casa Conceito — interactions
