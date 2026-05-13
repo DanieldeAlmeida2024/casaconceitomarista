@@ -10,7 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css?v=12">
 <link rel="stylesheet" href="responsive-fixes.css?v=1">
 </head>
 <body class="collapsed">
@@ -22,9 +23,13 @@
 <div id="loader">
   <div class="loader-bg"><img src="img/loader-bg.jpg" alt=""></div>
   <div class="loader-mark">
-    <img src="assets/logo-casa-conceito.png" alt="Casa Conceito Marista" class="loader-logo">
+    <div class="lab2">TERRAL CONCEITO</div>
+    <div class="lab3">apresenta:</div>
     <div class="loader-line"></div>
-    <div class="lab2">Marista · Goiânia</div>
+    <div class="loader-brand-row">
+      <div class="lab4">CASA CONCEITO MARISTA</div>
+      <img src="assets/logo-casa-conceito.png" alt="Casa Conceito Marista" class="loader-logo">
+    </div>
   </div>
   <div class="loader-progress-wrap">
     <div class="loader-progress-bar" id="loaderBar"></div>
@@ -200,45 +205,71 @@
     </div>
   </div>
 
-  <div class="location-grid fade-in">
-    <div class="loc-cat">
-      <h4>— Gastronomia</h4>
-      <ul>
-        <li>Íz Restaurante</li>
-        <li>Grá Bistrô</li>
-        <li>1929 Trattoria</li>
-        <li>Bianco Ristorante</li>
-        <li>Bartolomeu</li>
-        <li>Ópera Café</li>
-      </ul>
+  <div class="location-grid location-grid-map fade-in">
+    <div class="location-leaflet" data-location-map></div>
+    <div class="location-map fade-in">
+      <div class="axis-overlay">
+        <div class="axis-h"></div>
+        <div class="axis-v"></div>
+        <div class="axis-center">
+          <div class="pin">cc</div>
+          <div class="here">Casa Conceito</div>
+        </div>
+        <div class="axis-side top-left fade-in">
+          <div class="tag">Norte</div>
+          <div class="name">Parque <em>Areião</em></div>
+          <div class="dist">3 min · a pé</div>
+        </div>
+        <div class="axis-side top-right fade-in">
+          <div class="tag">Leste</div>
+          <div class="name">Ricardo <em>Paranhos</em></div>
+          <div class="dist">2 min · a pé</div>
+        </div>
+        <div class="axis-side bottom-left fade-in">
+          <div class="tag">Oeste</div>
+          <div class="name">Batalhão <em>Verde</em></div>
+          <div class="dist">4 min · a pé</div>
+        </div>
+        <div class="axis-side bottom-right fade-in">
+          <div class="tag">Sul</div>
+          <div class="name">Flamboyant <em>Mall</em></div>
+          <div class="dist">8 min · carro</div>
+        </div>
+      </div>
     </div>
-    <div class="loc-cat">
-      <h4>— Bem-estar</h4>
-      <ul>
-        <li>Bodytech Marista</li>
-        <li>Flex Fitness</li>
-        <li>Studio Velocity</li>
-        <li>Prime Gym</li>
-        <li>Tecfit</li>
-        <li>Basic Full</li>
-      </ul>
-    </div>
-    <div class="loc-cat">
-      <h4>— Educação</h4>
-      <ul>
-        <li>Colégio Marista</li>
-        <li>Maple Bear</li>
-        <li>Interschool Brasil</li>
-      </ul>
-    </div>
-    <div class="loc-cat">
-      <h4>— Saúde</h4>
-      <ul>
-        <li>Hospital Órion</li>
-        <li>Hosp. do Coração</li>
-        <li>Hospital Premium</li>
-        <li>Órion Business &amp; Health</li>
-      </ul>
+    <div class="location-cats stagger">
+      <div class="loc-cat">
+        <h4>— Gastronomia</h4>
+        <ul>
+          <li>Coco Bambu · 4 min</li>
+          <li>Mercado 53 · 6 min</li>
+          <li>Restaurante Mesa · 3 min</li>
+        </ul>
+      </div>
+      <div class="loc-cat">
+        <h4>— Saúde &amp; Bem-estar</h4>
+        <ul>
+          <li>Hospital Órion · 5 min</li>
+          <li>Life Center · 4 min</li>
+          <li>Clínica Sirio-Libanês · 7 min</li>
+        </ul>
+      </div>
+      <div class="loc-cat">
+        <h4>— Educação</h4>
+        <ul>
+          <li>Colégio Marista · 2 min</li>
+          <li>UCG · 5 min</li>
+          <li>Escola Bosque · 3 min</li>
+        </ul>
+      </div>
+      <div class="loc-cat">
+        <h4>— Conveniência</h4>
+        <ul>
+          <li>Buriti Shopping · 6 min</li>
+          <li>Feira do Cerrado · 4 min</li>
+          <li>Mercado Nobre · 2 min</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -283,11 +314,12 @@
   <div class="plan-wrap">
     <div class="plan-figure fade-in">
       <span class="plan-bottom-label">— Planta humanizada</span>
-      <span class="plan-area-badge">274<em>m² · planta tipo</em></span>
-
-      <img class="plan-img" data-plan="0" src="img/planta-tipo.jpg" alt="Planta Tipo — 274m²">
-      <img class="plan-img hidden" data-plan="1" src="img/planta-opcional.jpg" alt="Planta Opcional — 274m²">
-      <img class="plan-img hidden" data-plan="2" src="img/planta-decorado.jpg" alt="Planta Decorado — 274m²">
+      <img class="plan-img" data-plan="0" src="img/planta-tipo.jpg" alt="Sala e varanda integradas">
+      <img class="plan-img hidden" data-plan="1" src="img/planta-opcional.jpg" alt="Suite master">
+      <img class="plan-img hidden" data-plan="2" src="img/planta-decorado.jpg" alt="Varanda gourmet">
+      <div class="plan-area-badge">
+        274<em>m² · planta Tipo</em>
+      </div>
     </div>
 
     <div class="plan-side fade-in">
@@ -297,43 +329,43 @@
       <div class="plan-cta">
         <button class="cta-form">Agendar apresentação <span class="arrow">→</span></button>
       </div>
-      <div class="plan-tabs">
+      <div class="plan-tabs" id="planTabs">
         <div class="plan-tab active" data-plan="0">
-          <span class="marker">A · 01</span>
+          <span class="marker">01</span>
           <span class="name">Tipo</span>
-          <span class="specs">4 suítes · lavabo</span>
+          <span class="specs">4 suítes · 274m²</span>
         </div>
         <div class="plan-tab" data-plan="1">
-          <span class="marker">B · 02</span>
+          <span class="marker">02</span>
           <span class="name">Opcional</span>
-          <span class="specs">4 suítes · social amplo</span>
+          <span class="specs">3 suítes · master ampliada</span>
         </div>
         <div class="plan-tab" data-plan="2">
-          <span class="marker">C · 03</span>
+          <span class="marker">03</span>
           <span class="name">Decorado</span>
-          <span class="specs">4 suítes · sala íntima</span>
+          <span class="specs">Decorado · 274m²</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="specs-rail fade-in">
-    <div class="spec-cell">
+    <div class="spec-cell" data-plan-spec="0">
       <span class="k">— Esquadrias</span>
       <span class="v">piso<em>–teto</em></span>
       <span class="d">Salas e suíte master com vistas amplas e luz natural integral.</span>
     </div>
-    <div class="spec-cell">
+    <div class="spec-cell" data-plan-spec="1">
       <span class="k">— Porcelanato</span>
       <span class="v">1,20<em>×1,20m</em></span>
       <span class="d">Em todas as suítes e áreas sociais. Banheiros 100% revestidos.</span>
     </div>
-    <div class="spec-cell">
+    <div class="spec-cell" data-plan-spec="2">
       <span class="k">— Climatização</span>
       <span class="v">VRF<em> integral</em></span>
       <span class="d">Ar-condicionado em todas as suítes e salas. Ventilação cruzada.</span>
     </div>
-    <div class="spec-cell">
+    <div class="spec-cell" data-plan-spec="3">
       <span class="k">— Garagem</span>
       <span class="v">3<em> vagas + verde</em></span>
       <span class="d">Vaga verde com ponto elétrico por unidade. Lavagem a seco.</span>
@@ -679,6 +711,7 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>

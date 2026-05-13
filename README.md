@@ -9,6 +9,10 @@ Site estatico com duas versoes de pagina, pronto para deploy na Vercel.
 
 As duas paginas tem um botao flutuante compacto no canto inferior direito para alternar entre as versoes.
 
+## Conteudo e loader
+
+Consulte `docs/content-guide.md` para ver o formato de insercao das informacoes da pagina, incluindo plantas, cards, mapa de localizacao e tela de loading.
+
 ## Deploy na Vercel
 
 1. Importe este repositorio na Vercel.
