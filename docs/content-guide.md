@@ -180,11 +180,20 @@ A tela que aparece ao abrir o site e configurada no inicio do `script.js`, em `L
 const LOADER_CONFIG = {
   duration: 3000,
   order: ['label', 'secondaryLabel', 'line', 'brandRow'],
-  label: 'TERRAL CONCEITO',
+  label: {
+    type: 'image',
+    src: 'assets/logo-terral-conceito.png',
+    alt: 'Terral Conceito',
+    height: '52px'
+  },
   secondaryLabel: 'apresenta:',
-  brandLabel: 'CASA CONCEITO MARISTA',
+  brandLabel: '',
   backgroundImage: 'img/loader-bg.jpg',
-  logo: 'assets/logo-casa-conceito.png',
+  logo: {
+    type: 'image',
+    src: 'assets/logo-casa-conceito.png',
+    alt: 'Casa Conceito Marista'
+  },
   backgroundOpacity: '.55',
   logoHeight: '42px',
   labelSpacing: '.42em',
@@ -207,6 +216,40 @@ Campos do loader:
 - `labelSpacing`: espacamento entre letras da primeira label.
 - `secondaryLabelSpacing`: espacamento entre letras da segunda label.
 - `brandLabelSpacing`: espacamento entre letras da terceira label.
+
+Os campos visuais `label`, `secondaryLabel`, `brandLabel`, `logo` e `backgroundImage` aceitam texto ou imagem.
+
+Texto simples:
+
+```js
+label: 'TERRAL CONCEITO'
+```
+
+Caminho direto de imagem:
+
+```js
+label: 'assets/logo-terral-conceito.png'
+```
+
+Objeto de imagem, recomendado quando precisar controlar `alt`, altura ou largura:
+
+```js
+label: {
+  type: 'image',
+  src: 'assets/logo-terral-conceito.png',
+  alt: 'Terral Conceito',
+  height: '34px',
+  maxWidth: '240px'
+}
+```
+
+Tambem e possivel usar objeto de texto:
+
+```js
+label: {
+  text: 'TERRAL CONCEITO'
+}
+```
 
 Os nomes aceitos em `order` sao:
 

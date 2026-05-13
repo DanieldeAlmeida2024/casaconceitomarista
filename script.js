@@ -1,57 +1,23 @@
-// detecção de dispositivo e redirecionamento
-const MOBILE_BREAKPOINT = 1141;
-
-async function handleResolutionChange() {
-  await new Promise(resolve =>
-    requestAnimationFrame(resolve)
-  );
-
-  const width = window.innerWidth;
-  const path = window.location.pathname.toLowerCase();
-
-  const isMobile = width < MOBILE_BREAKPOINT;
-
-  const isV1 = path.includes("v1.html");
-  const isV2 = path.includes("v2.html");
-
-  /* já está na página correta */
-  if (
-    (isMobile && isV1) ||
-    (!isMobile && isV2)
-  ) {
-    return;
-  }
-
-  /* redireciona apenas se necessário */
-  if (isMobile) {
-    window.location.replace("v1.html");
-  } else {
-    window.location.replace("v2.html");
-  }
-}
-
-let resolutionTimer;
-
-window.addEventListener("resize", () => {
-  clearTimeout(resolutionTimer);
-
-  resolutionTimer = setTimeout(() => {
-    handleResolutionChange();
-  }, 180);
-});
-
-
 // Casa Conceito — interactions
 
 document.addEventListener('DOMContentLoaded', () => {
   const LOADER_CONFIG = {
     duration: 3000,
     order: ['label', 'secondaryLabel', 'line', 'brandRow'],
-    label: 'TERRAL CONCEITO',
+    label: {
+      type: 'image',
+      src: 'assets/logo-terral-conceito.png',
+      alt: 'Terral Conceito',
+      height: '52px'
+    },
     secondaryLabel: 'apresenta:',
     brandLabel: '',
     backgroundImage: 'img/loader-bg.jpg',
-    logo: 'assets/logo-casa-conceito.png',
+    logo: {
+      type: 'image',
+      src: 'assets/logo-casa-conceito.png',
+      alt: 'Casa Conceito Marista'
+    },
     backgroundOpacity: '.55',
     logoHeight: '42px',
     labelSpacing: '.42em',
@@ -174,20 +140,63 @@ document.addEventListener('DOMContentLoaded', () => {
       brandRow.className = 'loader-brand-row';
     }
 
-    function setLoaderText(el, value) {
+    function isLoaderImage(value) {
+      if (!value) return false;
+      if (typeof value === 'object') return value.type === 'image' || Boolean(value.src);
+      return /\.(png|jpe?g|webp|svg|gif)$/i.test(String(value).split('?')[0]);
+    }
+
+    function createLoaderImage(value, className) {
+      const config = typeof value === 'object' ? value : { src: value };
+      if (!config.src) return null;
+      const img = document.createElement('img');
+      img.src = config.src;
+      img.alt = config.alt || '';
+      img.className = config.className || className || 'loader-field-img';
+      if (config.width) img.style.width = config.width;
+      if (config.height) img.style.height = config.height;
+      if (config.maxWidth) img.style.maxWidth = config.maxWidth;
+      return img;
+    }
+
+    function setLoaderField(el, value, imageClassName) {
       if (!el) return;
       el.replaceChildren();
-      String(value || '').replace(/<br\s*\/?>/gi, '\n').split('\n').forEach((part, index) => {
+      el.hidden = !value;
+      if (!value) return;
+      if (isLoaderImage(value)) {
+        const img = createLoaderImage(value, imageClassName);
+        if (img) el.appendChild(img);
+        return;
+      }
+      const textValue = typeof value === 'object' && value.text !== undefined ? value.text : value;
+      String(textValue || '').replace(/<br\s*\/?>/gi, '\n').split('\n').forEach((part, index) => {
         if (index) el.appendChild(document.createElement('br'));
         el.appendChild(document.createTextNode(part));
       });
     }
 
-    if (bgImg && LOADER_CONFIG.backgroundImage) bgImg.src = LOADER_CONFIG.backgroundImage;
-    if (logo && LOADER_CONFIG.logo) logo.src = LOADER_CONFIG.logo;
-    setLoaderText(label, LOADER_CONFIG.label);
-    setLoaderText(secondaryLabel, LOADER_CONFIG.secondaryLabel);
-    setLoaderText(brandLabel, LOADER_CONFIG.brandLabel);
+    function setLoaderImage(el, value) {
+      if (!el) return;
+      const config = typeof value === 'object' ? value : { src: value };
+      if (!config.src) {
+        el.hidden = true;
+        return;
+      }
+      el.hidden = false;
+      el.src = config.src;
+      el.alt = config.alt || el.alt || '';
+      if (config.className) el.className = config.className;
+      if (config.width) el.style.width = config.width;
+      if (config.height) el.style.height = config.height;
+      if (config.maxWidth) el.style.maxWidth = config.maxWidth;
+    }
+
+    setLoaderImage(bgImg, LOADER_CONFIG.backgroundImage);
+    setLoaderImage(logo, LOADER_CONFIG.logo);
+    setLoaderField(label, LOADER_CONFIG.label);
+    setLoaderField(secondaryLabel, LOADER_CONFIG.secondaryLabel);
+    setLoaderField(brandLabel, LOADER_CONFIG.brandLabel);
     if (brandRow && brandLabel && logo) {
       brandRow.replaceChildren(brandLabel, logo);
     }
