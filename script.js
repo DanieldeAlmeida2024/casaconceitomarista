@@ -1,36 +1,54 @@
 // detecção de dispositivo e redirecionamento
 (async () => {
-  const redirectByScreenSize = async () => {
-    await new Promise(resolve => requestAnimationFrame(resolve));
+  const MOBILE_BREAKPOINT = 1141;
 
-    const isMobile = window.innerWidth < 1141;
-    const path = window.location.pathname;
+  async function monitorResolution() {
+    await new Promise(resolve =>
+      requestAnimationFrame(resolve)
+    );
 
-    const isV1 = path.includes("v1.html");
-    const isV2 = path.includes("v2.html");
+    const width = window.innerWidth;
+    const path = window.location.pathname.toLowerCase();
 
-    if (isMobile && !isV1) {
-      window.location.replace("v1.html");
+    const isMobile = width < MOBILE_BREAKPOINT;
+
+    const onV1 = path.includes("v1.html");
+    const onV2 = path.includes("v2.html");
+
+    /* já está na versão correta */
+    if (
+      (isMobile && onV1) ||
+      (!isMobile && onV2)
+    ) {
       return;
     }
 
-    if (!isMobile && !isV2) {
+    /* redireciona somente se necessário */
+    if (isMobile) {
+      window.location.replace("v1.html");
+    } else {
       window.location.replace("v2.html");
     }
-  };
+  }
 
-  let resizeTimer;
+  let resizeTimeout;
 
   window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
+    clearTimeout(resizeTimeout);
 
-    resizeTimer = setTimeout(() => {
-      redirectByScreenSize();
-    }, 180);
+    resizeTimeout = setTimeout(() => {
+      monitorResolution();
+    }, 200);
   });
 
-  redirectByScreenSize();
+  /* execução assíncrona sem bloquear render */
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      monitorResolution();
+    }, 0);
+  });
 })();
+
 
 // Casa Conceito — interactions
 
