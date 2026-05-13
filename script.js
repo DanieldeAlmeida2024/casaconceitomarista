@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     order: ['label', 'secondaryLabel', 'line', 'brandRow'],
     label: 'TERRAL CONCEITO',
     secondaryLabel: 'apresenta:',
-    brandLabel: 'CASA CONCEITO MARISTA',
+    brandLabel: '',
     backgroundImage: 'img/loader-bg.jpg',
     logo: 'assets/logo-casa-conceito.png',
     backgroundOpacity: '.55',
