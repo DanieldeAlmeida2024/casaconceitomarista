@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const points = {
       home: {
-        coords: [-16.70492, -49.25963],
+        coords: [-16.70582, -49.25869],
         title: 'Casa Conceito Marista',
         kicker: 'Endereco',
         desc: 'Rua 1.145, Qd. 262, Lotes 02/03, St. Marista, Goiania/GO.',
