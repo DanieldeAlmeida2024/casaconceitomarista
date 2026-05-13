@@ -1,53 +1,44 @@
 // detecção de dispositivo e redirecionamento
-(async () => {
-  const MOBILE_BREAKPOINT = 1141;
+const MOBILE_BREAKPOINT = 1141;
 
-  async function monitorResolution() {
-    await new Promise(resolve =>
-      requestAnimationFrame(resolve)
-    );
+async function handleResolutionChange() {
+  await new Promise(resolve =>
+    requestAnimationFrame(resolve)
+  );
 
-    const width = window.innerWidth;
-    const path = window.location.pathname.toLowerCase();
+  const width = window.innerWidth;
+  const path = window.location.pathname.toLowerCase();
 
-    const isMobile = width < MOBILE_BREAKPOINT;
+  const isMobile = width < MOBILE_BREAKPOINT;
 
-    const onV1 = path.includes("v1.html");
-    const onV2 = path.includes("v2.html");
+  const isV1 = path.includes("v1.html");
+  const isV2 = path.includes("v2.html");
 
-    /* já está na versão correta */
-    if (
-      (isMobile && onV1) ||
-      (!isMobile && onV2)
-    ) {
-      return;
-    }
-
-    /* redireciona somente se necessário */
-    if (isMobile) {
-      window.location.replace("v1.html");
-    } else {
-      window.location.replace("v2.html");
-    }
+  /* já está na página correta */
+  if (
+    (isMobile && isV1) ||
+    (!isMobile && isV2)
+  ) {
+    return;
   }
 
-  let resizeTimeout;
+  /* redireciona apenas se necessário */
+  if (isMobile) {
+    window.location.replace("v1.html");
+  } else {
+    window.location.replace("v2.html");
+  }
+}
 
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
+let resolutionTimer;
 
-    resizeTimeout = setTimeout(() => {
-      monitorResolution();
-    }, 200);
-  });
+window.addEventListener("resize", () => {
+  clearTimeout(resolutionTimer);
 
-  /* execução assíncrona sem bloquear render */
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      monitorResolution();
-    }, 0);
-  });
-})();
+  resolutionTimer = setTimeout(() => {
+    handleResolutionChange();
+  }, 180);
+});
 
 
 // Casa Conceito — interactions
