@@ -859,7 +859,7 @@ body.collapsed .nav{right:var(--panel-w-collapsed)}
 
 /* ───── FOOTER ───── */
 .footer{padding:140px 60px 60px;background:var(--green-900);border-top:1px solid rgba(200,160,100,.18)}
-.footer-grid{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.footer-grid{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
 .footer-brand{display:flex;flex-direction:column;gap:30px}
 .footer-logo{width:220px;height:auto;object-fit:contain;opacity:.95}
 .footer-brand p{font-family:var(--sans);font-size:13px;line-height:1.7;color:rgba(243,236,224,.6);font-weight:300;letter-spacing:.03em}
