@@ -466,7 +466,29 @@ document.querySelectorAll('.plan-tab[data-floor]').forEach(tab => {
   window.addEventListener('scroll', updateFloors, { passive: true });
   window.addEventListener('resize', () => { cacheFloorsMetrics(); updateFloors(); });
 
-  // ── Hero parallax
+  // Location categories carousel
+
+  const cats = Array.from(document.querySelectorAll(".location-cats .loc-cat"));
+
+  if (cats.length) {
+    let index = 0;
+    const intervalTime = 5000;
+
+    function showCat(nextIndex) {
+      cats.forEach((cat, i) => {
+        cat.classList.toggle("is-active", i === nextIndex);
+      });
+    }
+
+    showCat(index);
+
+    setInterval(() => {
+      index = (index + 1) % cats.length;
+      showCat(index);
+    }, intervalTime);
+  }
+
+
   function initLocationMaps() {
     if (!window.L) return;
 

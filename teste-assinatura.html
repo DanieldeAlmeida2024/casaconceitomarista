@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Assinatura Desenhada</title>
+
+<style>
+@font-face {
+  font-family: "RetroSignature";
+  src: url("./assets/Rocket Clouds.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root{
+  --gold:#c8a064;
+  --bg:#060606;
+  --text:rgba(255,255,255,.78);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:4vw;
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at top, rgba(200,160,100,.12), transparent 45%),
+    var(--bg);
+}
+
+.wrapper{
+  width:min(1180px,100%);
+}
+
+.text{
+  font-family: Georgia, serif;
+  font-size: clamp(1rem,1.1vw,1.2rem);
+  line-height:1.9;
+  color:var(--text);
+}
+
+/* =========================
+   ASSINATURA
+========================= */
+
+.signature{
+  position:relative;
+
+  display:inline-flex;
+  align-items:center;
+
+  margin-left:.45rem;
+
+  vertical-align:middle;
+}
+
+.signature-text{
+  position:relative;
+
+  display:inline-block;
+
+  font-family:"RetroSignature", cursive;
+  font-size:clamp(1rem,1.8vw,2rem);
+  line-height:1.5;
+
+  color:transparent;
+
+  white-space:nowrap;
+
+  /*
+    preenchimento aparece depois
+  */
+  animation: revealFill .4s linear forwards;
+  animation-delay:3.7s;
+}
+
+/*
+  CONTORNO DESENHADO
+*/
+
+.signature-text::before{
+  content:attr(data-text);
+
+  position:absolute;
+  inset:0;
+
+  color:transparent;
+
+  -webkit-text-stroke: 1px var(--gold);
+
+  clip-path: inset(0 100% 0 0);
+
+  animation: drawStroke 3s linear forwards;
+}
+
+/*
+  TEXTO FINAL
+*/
+
+.signature-text::after{
+  content:attr(data-text);
+
+  position:absolute;
+  inset:0;
+
+  color:var(--gold);
+
+  opacity:0;
+
+  filter:blur(3px);
+
+  animation: revealInk .8s ease forwards;
+  animation-delay:2.5s;
+}
+
+@keyframes drawStroke{
+  from{
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to{
+    clip-path: inset(0 -2em 0 0);
+  }
+}
+
+@keyframes revealInk{
+  from{
+    opacity:0;
+    filter:blur(3px);
+  }
+
+  to{
+    opacity:1;
+    filter:blur(0);
+  }
+}
+
+@keyframes revealFill{
+  to{
+    color:var(--gold);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+  body{
+    align-items:flex-start;
+    padding-top:18vh;
+  }
+
+  .text{
+    line-height:1.8;
+  }
+
+  .signature{
+    margin-left:.2rem;
+  }
+
+  .signature-text{
+    font-size:clamp(1rem,6vw,1.7rem);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <p class="text">
+    De um lado, a Ricardo Paranhos — símbolo de modernidade e vida ativa.
+    De outro, o Parque Areião — refúgio verde que convida à contemplação.
+
+    <span class="signature">
+      <span
+        class="signature-text"
+        data-text="Casa Conceito Marista"
+      >
+        Casa Conceito Marista
+      </span>
+    </span>
+  </p>
+
+</div>
+
+</body>
+</html>
