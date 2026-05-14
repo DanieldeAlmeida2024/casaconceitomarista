@@ -50,10 +50,46 @@
      width: 100% !important;
      height: auto !important;
   }
+  .italic{
+    font-size: 2svw;
+  }
+  .feat-number {
+    font-size: 8svw;
+  }
+  .feat-text{
+    font-size: 1.2svw;
+  } 
+  .feat-item {
+    font-size: 1.5svw;
+  }
 }
 
 @media (max-width:640px){
   .nav-menu-toggle{width:40px;height:40px}
   .nav.nav-open .nav-menu-toggle{top:14px!important;right:18px!important}
   .nav.nav-open .nav-menu-toggle::after{right:48px;font-size:8px;letter-spacing:.22em}
+  .product-grid .plan-view img{
+    padding: 17svw !important;
+     max-width: none !important;
+     width: 100% !important;
+     height: auto !important;
+  }
+  .features-rail{
+    flex-direction:column!important;
+  }
+  .italic{
+    font-size: 3svw;
+  }
+  .feat-number {
+    font-size: 13svw;
+  }
+  .feat-text{
+    font-size: 2svw;
+  } 
+  .feat-item {
+    font-size: 3svw;
+  }
+  .feat-separator{
+    font-size: 15svw;
+  }
 }
