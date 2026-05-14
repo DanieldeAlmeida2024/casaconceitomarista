@@ -1694,7 +1694,7 @@ body:has(.form-panel:not(.collapsed)) .version-switcher{opacity:0;pointer-events
   .hero-headline{max-width:680px;font-size:clamp(28px,5.8vw,46px);line-height:1.08}
   .hero-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-items:start}
   .scroll-hint{left:24px;bottom:72px}
-  .cta-form{max-width:100%;justify-content:space-between;text-align:left}
+  .cta-form{width: 70svw;max-width:100%;justify-content:space-between;text-align:left}
 
   .manifesto,.location,.product,.signatures,.clube,.footer{padding-left:32px;padding-right:32px}
   .manifesto{padding-top:130px;padding-bottom:130px}
