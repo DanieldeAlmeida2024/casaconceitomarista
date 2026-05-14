@@ -28,40 +28,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const PLAN_DATA = [
     {
       id: 0,
-      name: 'Sala & Varanda',
-      area: '68',
-      suites: '0',
-      floor: 'Social',
-      parking: 'Integrado',
+      name: 'Tipo',
+      area: '274',
+      suites: '4',
       image: 'img/planta-tipo.jpg',
-      specs: 'Integrados · 68m²',
-      badgeLabel: 'ambiente'
+      specs: 'Integrados · 274m²',
+      badgeLabel: 'ambiente',
+      features: [
+        { label: 'lavabo' },
+        { label: 'varanda' },
+        { label: 'churrasqueira\na carvão' }
+      ]
     },
     {
       id: 1,
-      name: 'Suíte Master',
-      area: '42',
-      suites: '1',
-      floor: 'Íntimo',
-      parking: 'Closet + SPA',
+      name: 'Opcional',
+      area: '274',
+      suites: '4',
       image: 'img/planta-opcional.jpg',
-      specs: 'Closet + SPA · 42m²',
-      badgeLabel: 'ambiente'
+      badgeLabel: 'ambiente',
+      specs: '4 suítes varanda integrada · 274m²',
+      features: [
+        { label: 'lavabo' },
+        { label: 'varanda integrada <br>com churrasqueira a carvão' }
+      ]
     },
     {
       id: 2,
-      name: 'Varanda Gourmet',
-      area: '28',
-      suites: '0',
-      floor: 'Lazer',
-      parking: 'Churrasqueira',
+      name: 'Suíte Master',
+      area: '274',
+      suites: '3',
       image: 'img/planta-decorado.jpg',
-      specs: 'Churrasqueira · 28m²',
-      badgeLabel: 'ambiente'
+      badgeLabel: 'ambiente',
+      specs: '3 suites master / super closet · 274m²',
+      features: [
+        {label: 'suíte master', sublabel: 'com super closet e 2 banhos master' },
+        { label: 'varanda\ngourmet' },
+        { label: 'churrasqueira\na carvão' }
+      ]
     }
   ];
 
-  // ── Loader — 3s loading experience
   const PLAN_LAYOUT_DATA = [
     {
       id: 0,
@@ -69,50 +76,45 @@ document.addEventListener('DOMContentLoaded', () => {
       area: '274',
       suites: '4',
       floor: 'Pavimento inteiro',
-      parking: '3 vagas + verde',
-      specs: '4 suites · 274m²',
       badgeLabel: 'planta',
-      rail: [
-        { key: '— Esquadrias', value: 'piso', suffix: '–teto', desc: 'Salas e suite master com vistas amplas e luz natural integral.' },
-        { key: '— Porcelanato', value: '1,20', suffix: '×1,20m', desc: 'Em todas as suites e areas sociais. Banheiros 100% revestidos.' },
-        { key: '— Climatizacao', value: 'VRF', suffix: ' integral', desc: 'Ar-condicionado em todas as suites e salas. Ventilacao cruzada.' },
-        { key: '— Garagem', value: '3', suffix: ' vagas + verde', desc: 'Vaga verde com ponto eletrico por unidade. Lavagem a seco.' }
+      specs: '4 suites · 274m²', 
+      features: [
+        { number: '4', label: 'suítes', sublabel: 'com closet' },
+        { label: 'lavabo' },
+        { label: 'varanda' },
+        { label: 'churrasqueria a carvão' }
       ]
     },
     {
       id: 1,
       name: 'Opcional',
-      area: '280',
-      suites: '3',
-      floor: 'Master ampliada',
-      parking: '3 vagas + deposito',
-      specs: '3 suites · master ampliada',
+      area: '274',
+      suites: '4',
       badgeLabel: 'planta',
-      rail: [
-        { key: '— Master', value: 'ampla', suffix: ' + closet', desc: 'Suite master com area expandida, banho generoso e espaco para closet linear.' },
-        { key: '— Living', value: 'duplo', suffix: ' integrado', desc: 'Sala, varanda e jantar conectados para receber com mais fluidez.' },
-        { key: '— Home office', value: '1', suffix: ' ambiente', desc: 'Ambiente reservado para trabalho, leitura ou apoio intimo da familia.' },
-        { key: '— Garagem', value: '3', suffix: ' vagas + deposito', desc: 'Tres vagas cobertas com apoio para armazenamento privativo.' }
+      specs: '4 suites varanda integrada · 274m²',
+      features: [
+        { number: '4', label: 'suítes', sublabel: 'com closet' },
+        { label: 'lavabo' },
+        { label: 'varanda integrada<br>com churrasqueira\na carvão' }
       ]
     },
     {
       id: 2,
-      name: 'Decorado',
-      area: '290',
-      suites: '4',
-      floor: 'Decorado',
-      parking: '3 vagas + verde',
-      specs: 'Decorado · 274m²',
+      name: 'Suíte Master',
+      area: '274',
+      suites: '3',
+      floor: 'Pavimento inteiro',
+      specs: '3 suites master / super closet · 274m²',
       badgeLabel: 'planta',
-      rail: [
-        { key: '— Interiores', value: '100%', suffix: ' mobiliado', desc: 'Ambientes com marcenaria, mobiliario solto e composicao pronta para visita.' },
-        { key: '— Gourmet', value: 'varanda', suffix: ' equipada', desc: 'Bancada, churrasqueira e estar externo integrados ao living.' },
-        { key: '— Iluminacao', value: 'cena', suffix: ' completa', desc: 'Projeto luminotecnico aplicado para valorizar materiais, arte e circulacao.' },
-        { key: '— Garagem', value: '3', suffix: ' vagas + verde', desc: 'Vaga verde com ponto eletrico por unidade e acesso privativo.' }
+      features: [
+        { number: '3', label: 'suítes', sublabel: 'sendo a master com<br>super closet e 2 banhos' },
+        { label: 'lavabo' },
+        { label: 'varanda integrada<br>com churrasqueira a carvão' }
       ]
     }
   ];
 
+    // ── Loader — 3s loading experience
   (() => {
     const bar  = document.getElementById('loaderBar');
     const pct  = document.getElementById('loaderPct');
@@ -331,10 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const product = group.closest('.product');
     const planImgs = product ? product.querySelectorAll('.plan-img[data-plan]') : [];
     const planArea = product ? product.querySelector('.plan-area-badge') : null;
+    const featuresRail = product ? product.querySelector('.features-rail') : null;
 
     function setPlan(index) {
-      const plans = product && product.querySelector('.product-grid') ? PLAN_DATA : PLAN_LAYOUT_DATA;
+      const plans = product && product.querySelector('.product-grid') ? PLAN_LAYOUT_DATA : PLAN_LAYOUT_DATA;
       const plan = plans[index] || plans[0];
+
       tabs.forEach(t => t.classList.toggle('active', Number(t.dataset.plan) === index));
       planImgs.forEach(img => img.classList.toggle('hidden', Number(img.dataset.plan) !== index));
 
@@ -342,27 +346,15 @@ document.addEventListener('DOMContentLoaded', () => {
         planArea.innerHTML = `${plan.area}<em>m² · ${plan.badgeLabel || 'planta'} ${plan.name}</em>`;
       }
 
-      const areaCell = product && product.querySelector('[data-plan-stat="area"] .v');
-      const suitesCell = product && product.querySelector('[data-plan-stat="suites"] .v');
-      const floorCell = product && product.querySelector('[data-plan-stat="floor"] .v');
-      const parkingCell = product && product.querySelector('[data-plan-stat="parking"] .v');
-      const railCells = product ? product.querySelectorAll('[data-plan-spec]') : [];
-
-      if (areaCell) areaCell.innerHTML = `${plan.area}<em>m²</em>`;
-      if (suitesCell) suitesCell.innerHTML = `${plan.suites}<em> suíte${plan.suites === '1' ? '' : 's'}</em>`;
-      if (floorCell) floorCell.innerHTML = `${plan.floor}<em> andar</em>`;
-      if (parkingCell) parkingCell.innerHTML = `${plan.parking}<em></em>`;
-      if (plan.rail && railCells.length) {
-        railCells.forEach(cell => {
-          const spec = plan.rail[Number.parseInt(cell.dataset.planSpec, 10)];
-          if (!spec) return;
-          const keyEl = cell.querySelector('.k');
-          const valueEl = cell.querySelector('.v');
-          const descEl = cell.querySelector('.d');
-          if (keyEl) keyEl.textContent = spec.key;
-          if (valueEl) valueEl.innerHTML = `${spec.value}<em>${spec.suffix || ''}</em>`;
-          if (descEl) descEl.textContent = spec.desc;
-        });
+      if (featuresRail && plan.features) {
+        featuresRail.innerHTML = plan.features.map((item, i, arr) => `
+          <div class="feat-item">
+            ${item.number ? `<span class="feat-number">${item.number}</span>` : ''}
+            ${item.label ? `<span class="feat-label${item.number ? ' italic' : ''}">${item.label}</span>` : ''}
+            ${item.sublabel ? `<span class="feat-text">${item.sublabel}</span>` : ''}
+          </div>
+          ${i < arr.length - 1 ? '<span class="feat-separator">+</span>' : ''}
+        `).join('');
       }
     }
 
