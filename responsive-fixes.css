@@ -44,6 +44,12 @@
     grid-column:auto!important;
     grid-row:auto!important;
   }
+  .product-grid .plan-view img{
+    padding: 10svw !important;
+     max-width: none !important;
+     width: 100% !important;
+     height: auto !important;
+  }
 }
 
 @media (max-width:640px){
