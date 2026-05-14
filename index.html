@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=v1.html">
-<title>Casa Conceito Marista</title>
-<link rel="canonical" href="v1.html">
-</head>
-<body>
-</body>
-<script>
-(function () {
-  const target =
-    window.innerWidth < 1140
-      ? "v1.html"
-      : "v2.html";
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  window.location.replace(target);
-})();
-</script>
+  <title>Casa Conceito Marista</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #app-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <iframe id="app-frame"></iframe>
+
+  <script>
+    (() => {
+      const frame = document.getElementById("app-frame");
+
+      function renderVersion() {
+        const target =
+          window.innerWidth < 1140
+            ? "v1.html"
+            : "v2.html";
+
+        // evita recarregamento desnecessário
+        if (!frame.src.includes(target)) {
+          frame.src = target;
+        }
+      }
+
+      renderVersion();
+
+      let resizeTimeout;
+
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+          renderVersion();
+        }, 120);
+      });
+    })();
+  </script>
+
+</body>
 </html>
