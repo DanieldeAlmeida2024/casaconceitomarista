@@ -325,59 +325,88 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.7 });
   manifestoLines.forEach(el => mio.observe(el));
 
-  // ── Plan tabs
-  document.querySelectorAll('.plan-tabs').forEach(group => {
-    const tabs = group.querySelectorAll('.plan-tab[data-plan]');
-    if (!tabs.length) return;
+// ── Plan tabs
+document.querySelectorAll('.plan-tabs').forEach(group => {
+  const tabs = group.querySelectorAll('.plan-tab[data-plan]');
+  if (!tabs.length) return;
 
-    const product = group.closest('.product');
-    const planImgs = product ? product.querySelectorAll('.plan-img[data-plan]') : [];
-    const planArea = product ? product.querySelector('.plan-area-badge') : null;
-    const featuresRail = product ? product.querySelector('.features-rail') : null;
+  const product = group.closest('.product');
+  const planImgs = product ? product.querySelectorAll('.plan-img[data-plan]') : [];
+  const planArea = product ? product.querySelector('.plan-area-badge') : null;
+  const featuresRail = product ? product.querySelector('.features-rail') : null;
 
-    function setPlan(index) {
-      const plans = product && product.querySelector('.product-grid') ? PLAN_LAYOUT_DATA : PLAN_LAYOUT_DATA;
-      const plan = plans[index] || plans[0];
+  function fadeIn(el) {
+    if (!el) return;
 
-      tabs.forEach(t => t.classList.toggle('active', Number(t.dataset.plan) === index));
-      planImgs.forEach(img => img.classList.toggle('hidden', Number(img.dataset.plan) !== index));
+    el.classList.remove('is-fading-in');
+    void el.offsetWidth;
+    el.classList.add('is-fading-in');
+  }
 
-      if (planArea) {
-        planArea.innerHTML = `${plan.area}<em>m² · ${plan.badgeLabel || 'planta'} ${plan.name}</em>`;
-      }
+  function setPlan(index) {
+    const plans = PLAN_LAYOUT_DATA;
+    const plan = plans[index] || plans[0];
 
-      if (featuresRail && plan.features) {
-        featuresRail.innerHTML = plan.features.map((item, i, arr) => `
-          <div class="feat-item">
-            ${item.number ? `<span class="feat-number">${item.number}</span>` : ''}
-            ${item.label ? `<span class="feat-label${item.number ? ' italic' : ''}">${item.label}</span>` : ''}
-            ${item.sublabel ? `<span class="feat-text">${item.sublabel}</span>` : ''}
-          </div>
-          ${i < arr.length - 1 ? '<span class="feat-separator">+</span>' : ''}
-        `).join('');
-      }
+    tabs.forEach(t =>
+      t.classList.toggle('active', Number(t.dataset.plan) === index)
+    );
+
+    planImgs.forEach(img => {
+      const isCurrent = Number(img.dataset.plan) === index;
+      img.classList.toggle('hidden', !isCurrent);
+
+      if (isCurrent) fadeIn(img);
+    });
+
+    if (planArea) {
+      planArea.innerHTML = `${plan.area}<em>m² · ${plan.badgeLabel || 'planta'} ${plan.name}</em>`;
+      fadeIn(planArea);
     }
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const index = Number.parseInt(tab.dataset.plan, 10);
-        if (Number.isNaN(index)) return;
-        setPlan(index);
+    if (featuresRail && plan.features) {
+      featuresRail.innerHTML = plan.features.map((item, i, arr) => `
+        <div class="feat-item">
+          ${item.number ? `<span class="feat-number">${item.number}</span>` : ''}
+          ${item.label ? `<span class="feat-label${item.number ? ' italic' : ''}">${item.label}</span>` : ''}
+          ${item.sublabel ? `<span class="feat-text">${item.sublabel}</span>` : ''}
+        </div>
+        ${i < arr.length - 1 ? '<span class="feat-separator">+</span>' : ''}
+      `).join('');
+
+      fadeIn(featuresRail);
+
+      featuresRail.querySelectorAll('.feat-item, .feat-separator').forEach((el, i) => {
+        el.style.animationDelay = `${i * 80}ms`;
+        fadeIn(el);
       });
-    });
+    }
+  }
 
-    const active = group.querySelector('.plan-tab[data-plan].active') || tabs[0];
-    setPlan(Number.parseInt(active.dataset.plan, 10) || 0);
-  });
-
-  document.querySelectorAll('.plan-tab[data-floor]').forEach(tab => {
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const group = tab.closest('.plan-tabs');
-      if (!group) return;
-      group.querySelectorAll('.plan-tab[data-floor]').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      const index = Number.parseInt(tab.dataset.plan, 10);
+      if (Number.isNaN(index)) return;
+
+      setPlan(index);
     });
   });
+
+  const active = group.querySelector('.plan-tab[data-plan].active') || tabs[0];
+  setPlan(Number.parseInt(active.dataset.plan, 10) || 0);
+});
+
+document.querySelectorAll('.plan-tab[data-floor]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const group = tab.closest('.plan-tabs');
+    if (!group) return;
+
+    group.querySelectorAll('.plan-tab[data-floor]').forEach(t => {
+      t.classList.remove('active');
+    });
+
+    tab.classList.add('active');
+  });
+});
 
   const floorsScroll = document.querySelector('.floors-scroll');
   const floorCards = document.querySelectorAll('.floor-card');

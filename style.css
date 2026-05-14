@@ -575,6 +575,30 @@ body.collapsed .nav{right:var(--panel-w-collapsed)}
 .plan-tab .name{font-family:var(--sans);font-size:24px;font-weight:300}
 .plan-tab .specs{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,236,224,.5)}
 
+.is-fading-in {
+  animation: planFadeIn 0.65s ease forwards;
+}
+
+.feat-item.is-fading-in,
+.feat-separator.is-fading-in {
+  opacity: 0;
+  animation: planFadeIn 0.65s ease forwards;
+}
+
+@keyframes planFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 .product-grid{max-width:1480px;margin:0 auto;display:flex;gap:72px;align-items:stretch}
 .product-grid>div{min-width:0}
 .product-grid .plan-view{position:relative;flex:1 1 48%;aspect-ratio:1/1.04;background:var(--green-800);border:1px solid rgba(200,160,100,.18);overflow:hidden}
