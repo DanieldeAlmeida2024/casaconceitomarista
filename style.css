@@ -855,7 +855,7 @@ body.collapsed .nav{right:var(--panel-w-collapsed)}
 .sc-8 img{object-position:center 35%}
 
 .showcase-foot{padding:50px 60px 100px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(200,160,100,.1);margin-top:3px}
-.showcase-foot p{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,236,224,.3)}
+.showcase-foot p{width:50svw;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,236,224,.3)}
 
 /* ───── FOOTER ───── */
 .footer{padding:140px 60px 60px;background:var(--green-900);border-top:1px solid rgba(200,160,100,.18)}
